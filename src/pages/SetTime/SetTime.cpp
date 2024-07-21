@@ -1,4 +1,4 @@
-#include "SetTime.h";
+#include "SetTime.h"
 
 int settingIndex = 0;
 int hours = 0, minutes = 0, seconds = 0;
@@ -59,8 +59,15 @@ void setTime()
     if (M5.BtnPWR.wasPressed())
     {
         updateRTC();
+        M5.Lcd.clear();
         currentPage = 0;
         needRedraw = true;
+    }
+
+    if (M5.BtnA.wasDoubleClicked())
+    {
         M5.Lcd.clear();
+        currentPage = 0;
+        needRedraw = true;
     }
 }

@@ -16,4 +16,10 @@ void displayTime()
         M5.Lcd.drawString(timeStr, M5.Lcd.width() / 2, M5.Lcd.height() / 2);
         strcpy(lastTimeStr, timeStr);
     }
+
+    if (M5.BtnA.wasDoubleClicked())
+    {
+        M5.Lcd.clear();
+        currentPage = 1;
+    }
 }

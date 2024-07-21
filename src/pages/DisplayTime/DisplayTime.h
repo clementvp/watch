@@ -4,6 +4,8 @@
 #include <Arduino.h>
 #include <M5Unified.h>
 
+extern int currentPage;
+
 void displayTime();
 
 #endif

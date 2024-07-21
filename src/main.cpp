@@ -17,12 +17,6 @@ void loop()
 
   M5.update();
 
-  if (M5.BtnA.wasDoubleClicked())
-  {
-    M5.Lcd.clear();
-    currentPage = 1 - currentPage;
-  }
-
   if (currentPage == 0)
   {
     displayTime();
