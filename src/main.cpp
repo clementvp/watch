@@ -10,6 +10,7 @@ void setup()
   M5.begin(cfg);
   M5.Rtc.begin();
   M5.Lcd.setRotation(1);
+  M5.Lcd.setBrightness(1);
 }
 
 void goToSleep()
