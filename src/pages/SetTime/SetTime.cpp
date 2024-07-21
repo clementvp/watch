@@ -21,6 +21,9 @@ void setTime()
         M5.Lcd.setTextSize(1);
         M5.Lcd.setCursor(10, M5.Lcd.height() - 20);
         M5.Lcd.printf("A: Switch  B: +  PWR: save");
+        auto dt = M5.Rtc.getTime();
+        hours = dt.hours;
+        minutes = dt.minutes;
         needRedraw = false;
     }
 
