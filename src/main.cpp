@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <M5Unified.h>
 #include "pages/DisplayTime/DisplayTime.h"
-#include "pages/SetTIme/SetTime.h"
+#include "pages/SetTime/SetTime.h"
 
 int currentPage = 0;
 void setup()
@@ -21,8 +21,12 @@ void loop()
   {
     displayTime();
   }
-  else
+  else if (currentPage == 1)
   {
     setTime();
+  }
+  else
+  {
+    setDate();
   }
 }

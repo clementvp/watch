@@ -7,6 +7,8 @@
 extern int currentPage;
 
 void setTime();
-void updateRTC();
+void setDate();
+void updateRTCTime();
+void updateRTCDate();
 
 #endif
