@@ -22,11 +22,56 @@ void displayTime()
   }
 }
 
+void updateRTC()
+{
+  M5.Rtc.setTime({hours, minutes, seconds});
+}
+
 void setTime()
 {
-  M5.Display.setCursor(0, 0);
-  M5.Display.setTextSize(2);
-  M5.Display.printf("Set time");
+  static bool needRedraw = true;
+
+  M5.Lcd.clear();
+  M5.Lcd.setTextSize(2);
+  M5.Lcd.setCursor(10, 10);
+  M5.Lcd.printf("Set Time");
+  M5.Lcd.setTextSize(1);
+  M5.Lcd.setCursor(10, M5.Lcd.height() - 20);
+  M5.Lcd.printf("A: Switch  B: +");
+
+  M5.Lcd.setTextSize(4);
+  M5.Lcd.setCursor(M5.Lcd.width() / 2 - 50, M5.Lcd.height() / 2 - 20);
+  M5.Lcd.printf("%02d:%02d", hours, minutes);
+
+  // Souligner la valeur en cours de réglage
+  if (settingIndex == 0)
+  {
+    M5.Lcd.drawLine(M5.Lcd.width() / 2 - 50, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 10, M5.Lcd.height() / 2 + 20, WHITE);
+    M5.Lcd.drawLine(M5.Lcd.width() / 2 + 10, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 + 50, M5.Lcd.height() / 2 + 20, BLACK);
+  }
+  else
+  {
+    M5.Lcd.drawLine(M5.Lcd.width() / 2 - 50, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 10, M5.Lcd.height() / 2 + 20, BLACK);
+    M5.Lcd.drawLine(M5.Lcd.width() / 2 + 10, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 + 50, M5.Lcd.height() / 2 + 20, WHITE);
+  }
+
+  if (M5.BtnA.wasPressed())
+  {
+    settingIndex = 1 - settingIndex;
+  }
+
+  if (M5.BtnB.wasPressed())
+  {
+    if (settingIndex == 0)
+    {
+      hours = (hours + 1) % 24;
+    }
+    else
+    {
+      minutes = (minutes + 1) % 60;
+    }
+    updateRTC();
+  }
 }
 
 void setup()
@@ -42,11 +87,11 @@ void loop()
 
   M5.update();
 
-  if (M5.BtnA.wasPressed())
+  if (M5.BtnA.wasDoubleClicked())
   {
     M5.Lcd.clear();
     currentPage = 1 - currentPage; // Basculer entre les pages
-    settingIndex = 0;              // Réinitialiser l'index de réglage
+    settingIndex = 0;
   }
 
   if (currentPage == 0)
@@ -57,5 +102,4 @@ void loop()
   {
     setTime();
   }
-  delay(100);
 }
