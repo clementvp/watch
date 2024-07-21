@@ -19,16 +19,13 @@ void goToSleep()
 
 void loop()
 {
-
   static unsigned long lastActivityTime = millis();
 
-  // Vérifiez s'il y a une activité (par exemple, un bouton pressé)
   if (M5.BtnA.wasPressed() || M5.BtnB.wasPressed() || M5.BtnPWR.wasPressed())
   {
     lastActivityTime = millis();
   }
 
-  // Vérifiez si une minute s'est écoulée sans activité
   if (millis() - lastActivityTime > 60000)
   {
     goToSleep();
