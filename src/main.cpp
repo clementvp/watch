@@ -31,13 +31,17 @@ void setTime()
 {
   static bool needRedraw = true;
 
-  M5.Lcd.clear();
-  M5.Lcd.setTextSize(2);
-  M5.Lcd.setCursor(10, 10);
-  M5.Lcd.printf("Set Time");
-  M5.Lcd.setTextSize(1);
-  M5.Lcd.setCursor(10, M5.Lcd.height() - 20);
-  M5.Lcd.printf("A: Switch  B: +");
+  if (needRedraw)
+  {
+    M5.Lcd.clear();
+    M5.Lcd.setTextSize(2);
+    M5.Lcd.setCursor(10, 10);
+    M5.Lcd.printf("Set Time");
+    M5.Lcd.setTextSize(1);
+    M5.Lcd.setCursor(10, M5.Lcd.height() - 20);
+    M5.Lcd.printf("A: Save  B: Switch  C: +");
+    needRedraw = false;
+  }
 
   M5.Lcd.setTextSize(4);
   M5.Lcd.setCursor(M5.Lcd.width() / 2 - 50, M5.Lcd.height() / 2 - 20);
@@ -70,7 +74,14 @@ void setTime()
     {
       minutes = (minutes + 1) % 60;
     }
+  }
+
+  if (M5.BtnPWR.wasPressed())
+  {
     updateRTC();
+    currentPage = 0;
+    needRedraw = true;
+    M5.Lcd.clear();
   }
 }
 
