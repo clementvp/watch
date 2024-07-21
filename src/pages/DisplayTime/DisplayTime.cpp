@@ -10,6 +10,8 @@ void displayTime()
     char dateStr[11];
     snprintf(dateStr, sizeof(dateStr), "%02d/%02d/%04d", dt.date.date, dt.date.month, dt.date.year);
     int batteryLevel = M5.Power.getBatteryLevel();
+    M5.Lcd.setTextSize(2);
+    M5.Lcd.setTextDatum(TL_DATUM);
     M5.Display.setCursor(0, 0);
     M5.Display.printf("%d%%", batteryLevel);
 
