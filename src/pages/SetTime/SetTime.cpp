@@ -43,21 +43,21 @@ void setDate()
 
         if (settingIndexDate == 0)
         {
-            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 60, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 40, M5.Lcd.height() / 2 + 20, WHITE);
-            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 35, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 15, M5.Lcd.height() / 2 + 20, BLACK);
-            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 10, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 + 60, M5.Lcd.height() / 2 + 20, BLACK);
+            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 90, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 60, M5.Lcd.height() / 2 + 20, WHITE);
+            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 45, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 15, M5.Lcd.height() / 2 + 20, BLACK);
+            M5.Lcd.drawLine(M5.Lcd.width() / 2 + 5, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 + 85, M5.Lcd.height() / 2 + 20, BLACK);
         }
         else if (settingIndexDate == 1)
         {
-            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 60, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 40, M5.Lcd.height() / 2 + 20, BLACK);
-            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 35, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 15, M5.Lcd.height() / 2 + 20, WHITE);
-            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 10, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 + 60, M5.Lcd.height() / 2 + 20, BLACK);
+            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 90, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 60, M5.Lcd.height() / 2 + 20, BLACK);
+            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 45, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 15, M5.Lcd.height() / 2 + 20, WHITE);
+            M5.Lcd.drawLine(M5.Lcd.width() / 2 + 5, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 + 85, M5.Lcd.height() / 2 + 20, BLACK);
         }
         else
         {
-            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 60, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 40, M5.Lcd.height() / 2 + 20, BLACK);
-            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 35, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 15, M5.Lcd.height() / 2 + 20, BLACK);
-            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 10, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 + 60, M5.Lcd.height() / 2 + 20, WHITE);
+            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 90, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 60, M5.Lcd.height() / 2 + 20, BLACK);
+            M5.Lcd.drawLine(M5.Lcd.width() / 2 - 45, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 - 15, M5.Lcd.height() / 2 + 20, BLACK);
+            M5.Lcd.drawLine(M5.Lcd.width() / 2 + 5, M5.Lcd.height() / 2 + 20, M5.Lcd.width() / 2 + 85, M5.Lcd.height() / 2 + 20, WHITE);
         }
         if (M5.BtnA.wasPressed())
         {
