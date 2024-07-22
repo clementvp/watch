@@ -15,6 +15,7 @@ void setup()
 
 void goToSleep()
 {
+
   M5.Power.powerOff();
 }
 
@@ -27,7 +28,7 @@ void loop()
     lastActivityTime = millis();
   }
 
-  if (millis() - lastActivityTime > 60000)
+  if (currentPage == 0 && millis() - lastActivityTime > 60000)
   {
     goToSleep();
   }
@@ -42,7 +43,7 @@ void loop()
   {
     setTime();
   }
-  else
+  else if (currentPage == 2)
   {
     setDate();
   }
