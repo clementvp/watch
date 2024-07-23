@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include <M5Unified.h>
 #include "pages/DisplayTime/DisplayTime.h"
 #include "pages/SetTime/SetTime.h"
