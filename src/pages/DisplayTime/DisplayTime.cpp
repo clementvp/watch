@@ -32,4 +32,10 @@ void displayTime()
         M5.Lcd.clear();
         currentPage = 1;
     }
+
+    if (M5.BtnA.wasHold())
+    {
+        M5.Lcd.clear();
+        currentPage = 3;
+    }
 }
