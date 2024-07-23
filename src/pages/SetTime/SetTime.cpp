@@ -83,7 +83,7 @@ void setDate()
         if (M5.BtnA.wasDoubleClicked())
         {
             M5.Lcd.clear();
-            currentPage = 0;
+            currentPage = 3;
             needRedraw = true;
         }
 

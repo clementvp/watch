@@ -2,11 +2,13 @@
 #include <M5Unified.h>
 #include "pages/DisplayTime/DisplayTime.h"
 #include "pages/SetTime/SetTime.h"
+#include "pages/ServerWebPage/ServerWebPage.h"
 
 const unsigned long SLEEP_TIMEOUT = 60000; // 1 minute en millisecondes
 const int DISPLAY_PAGE = 0;
 const int SET_TIME_PAGE = 1;
 const int SET_DATE_PAGE = 2;
+const int SERVER_WEB_PAGE = 3;
 
 int currentPage = DISPLAY_PAGE;
 unsigned long displayPageEntryTime = 0;
@@ -74,6 +76,9 @@ void handleCurrentPage()
     break;
   case SET_DATE_PAGE:
     setDate();
+    break;
+  case SERVER_WEB_PAGE:
+    serverWebPage();
     break;
   }
 }

@@ -30,6 +30,6 @@ void displayTime()
     if (M5.BtnA.wasDoubleClicked())
     {
         M5.Lcd.clear();
-        currentPage = 1;
+        currentPage = 3;
     }
 }
