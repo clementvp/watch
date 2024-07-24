@@ -1,9 +1,11 @@
 #include "SetTime.h"
 
-int settingIndexTime = 0;
-int hours = 0, minutes = 0, seconds = 0;
-int settingIndexDate = 0;
-int date = 1, month = 1, year = 2024;
+uint8_t settingIndexTime = 0;
+int8_t hours = 0, minutes = 0, seconds = 0;
+uint8_t settingIndexDate = 0;
+int8_t date = 1;
+int8_t month = 1;
+int16_t year = 2024;
 
 void updateRTCTime()
 {
