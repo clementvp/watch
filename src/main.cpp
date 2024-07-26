@@ -28,19 +28,23 @@ void goToSleep()
 
 bool isTimeToSleep()
 {
-  return millis() - lastInteractionTime > SLEEP_TIMEOUT;
+  return (currentPage == DISPLAY_PAGE) && (millis() - lastInteractionTime > SLEEP_TIMEOUT);
 }
 
 void updateLastInteractionTime()
 {
-  if (currentPage != DISPLAY_PAGE)
-  {
-    lastInteractionTime = millis();
-  }
+  lastInteractionTime = millis();
 }
 
 void handleCurrentPage()
 {
+  static int previousPage = -1; // Pour détecter le changement de page
+
+  if (previousPage != currentPage && currentPage == DISPLAY_PAGE)
+  {
+    updateLastInteractionTime();
+  }
+
   switch (currentPage)
   {
   case DISPLAY_PAGE:
@@ -56,17 +60,16 @@ void handleCurrentPage()
     serverWebPage();
     break;
   }
+
+  previousPage = currentPage;
 }
 
 void loop()
 {
   M5.update();
-  updateLastInteractionTime();
-
+  handleCurrentPage();
   if (isTimeToSleep())
   {
     goToSleep();
   }
-
-  handleCurrentPage();
 }
