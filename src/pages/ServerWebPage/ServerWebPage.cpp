@@ -2,13 +2,15 @@
 
 const char *ssid = "M5StackAP";
 const char *password = "12345678";
+IPAddress apIP; // Déclaration globale
 
 WebServer server(80);
 
 void setupWiFiAP()
 {
     WiFi.softAP(ssid, password);
-    IPAddress IP = WiFi.softAPIP();
+    delay(500);
+    apIP = WiFi.softAPIP();
 }
 
 void setupDisplay()
@@ -16,6 +18,8 @@ void setupDisplay()
     M5.Lcd.setTextDatum(MC_DATUM);
     M5.Lcd.setTextSize(2);
     M5.Lcd.drawString("Wifi AP", M5.Lcd.width() / 2, M5.Lcd.height() / 2);
+    M5.Lcd.setTextSize(1);
+    M5.Lcd.drawString("IP: " + apIP.toString(), M5.Lcd.width() / 2, M5.Lcd.height() / 2 + 20);
 }
 
 String getWifiListOptions()
