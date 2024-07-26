@@ -1,14 +1,15 @@
 #include "DisplayTime.h"
 
 char lastTimeStr[9] = "";
+const char *daysOfWeek[] = {"Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"};
 
 void displayTime()
 {
     auto dt = M5.Rtc.getDateTime();
     char timeStr[9];
     snprintf(timeStr, sizeof(timeStr), "%02d:%02d:%02d", dt.time.hours, dt.time.minutes, dt.time.seconds);
-    char dateStr[11];
-    snprintf(dateStr, sizeof(dateStr), "%02d/%02d/%04d", dt.date.date, dt.date.month, dt.date.year);
+    char dateStr[15];
+    snprintf(dateStr, sizeof(dateStr), "%s %02d/%02d/%04d", daysOfWeek[dt.date.weekDay], dt.date.date, dt.date.month, dt.date.year);
     int batteryLevel = M5.Power.getBatteryLevel();
 
     if (strcmp(timeStr, lastTimeStr) != 0)
