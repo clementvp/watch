@@ -28,7 +28,7 @@ void goToSleep()
 
 bool isTimeToSleep()
 {
-  millis() - lastInteractionTime > SLEEP_TIMEOUT;
+  return millis() - lastInteractionTime > SLEEP_TIMEOUT;
 }
 
 void updateLastInteractionTime()
