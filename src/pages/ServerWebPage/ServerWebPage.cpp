@@ -1,13 +1,13 @@
 #include "ServerWebPage.h"
 #include "Preferences.h"
-const char *ssid = "M5StackAP";
-const char *password = "12345678";
 IPAddress apIP;
 WebServer server(80);
 
 void setupWiFiAP()
 {
-    WiFi.softAP(ssid, password);
+    char *M5Ssid = "M5StackAP";
+    char *M5Password = "12345678";
+    WiFi.softAP(M5Ssid, M5Password);
     delay(500);
     apIP = WiFi.softAPIP();
 }
@@ -48,7 +48,7 @@ void handleRoot()
                   "<select name='ssid'>" +
                   getWifiListOptions() +
                   "</select><br><br>"
-                  "<input type='password' name='password' placeholder='Mot de passe Wi-Fi'><br><br>"
+                  "<input name='password' placeholder='Mot de passe Wi-Fi'><br><br>"
                   "<input type='submit' value='Connecter et Sauvegarder'>"
                   "</form>"
                   "</body></html>";
