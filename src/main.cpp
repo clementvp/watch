@@ -3,7 +3,7 @@
 #include "pages/SetTime/SetTime.h"
 #include "pages/ServerWebPage/ServerWebPage.h"
 
-const unsigned long SLEEP_TIMEOUT = 60000; // 1 minute en millisecondes
+const unsigned long SLEEP_TIMEOUT = 60000;
 const int DISPLAY_PAGE = 0;
 const int SET_TIME_PAGE = 1;
 const int SET_DATE_PAGE = 2;
