@@ -2,8 +2,7 @@
 #include "Preferences.h"
 const char *ssid = "M5StackAP";
 const char *password = "12345678";
-IPAddress apIP; // Déclaration globale
-
+IPAddress apIP;
 WebServer server(80);
 
 void setupWiFiAP()
@@ -20,8 +19,6 @@ void setupDisplay()
     M5.Lcd.drawString("Wifi AP", M5.Lcd.width() / 2, M5.Lcd.height() / 2);
     M5.Lcd.setTextSize(1);
     M5.Lcd.drawString("IP: " + apIP.toString(), M5.Lcd.width() / 2, M5.Lcd.height() / 2 + 20);
-    // String qrContent = "WIFI:S:" + String(ssid) + ";T:WPA2;P:" + String(password) + ";H:http://" + apIP.toString() + ";;";
-    // M5.Lcd.qrcode(qrContent);
 }
 
 String getWifiListOptions()
