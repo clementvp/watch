@@ -1,12 +1,13 @@
 #include "ServerWebPage.h"
+#include "Utility.h"
 #include "Preferences.h"
 IPAddress apIP;
 WebServer server(80);
 
 void setupWiFiAP()
 {
-    char *M5Ssid = "M5StackAP";
-    char *M5Password = "12345678";
+    const char *M5Ssid = "M5StackAP";
+    const char *M5Password = "12345678";
     WiFi.softAP(M5Ssid, M5Password);
     delay(500);
     apIP = WiFi.softAPIP();
@@ -113,6 +114,7 @@ void cleanup()
     server.stop();
     WiFi.softAPdisconnect(true);
     M5.Lcd.clear();
+    updateLastInteractionTime();
     currentPage = 0;
 }
 

@@ -1,4 +1,5 @@
 #include <M5Unified.h>
+#include "Utility.h"
 #include "pages/DisplayTime/DisplayTime.h"
 #include "pages/SetTime/SetTime.h"
 #include "pages/ServerWebPage/ServerWebPage.h"
@@ -38,9 +39,8 @@ void updateLastInteractionTime()
 
 void handleCurrentPage()
 {
-  static int previousPage = -1; // Pour détecter le changement de page
-
-  if (previousPage != currentPage && currentPage == DISPLAY_PAGE)
+  static int previousPage = -1;
+  if (previousPage != currentPage)
   {
     updateLastInteractionTime();
   }
